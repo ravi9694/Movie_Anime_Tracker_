@@ -1,0 +1,253 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+:root {
+  --mainColor: #ff2c1f;
+  --heading: #53452a;
+  --textColor: #fff;
+  --bgColor: #d9d9d9;
+  /* --bgColor: #444; */
+}
+
+body {
+  background-color: #d9d9d9;
+  color: var(--textColor);
+  font-family: "Poppins", sans-serif;
+}
+
+.header {
+  background-color: gold;
+  width: 100%;
+  padding: 4vh 5%;
+  display: grid;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.header .name {
+  cursor: pointer;
+  font-size: 3rem;
+  word-spacing: 200%;
+  grid-column: 1 / 2;
+  grid-row: 1;
+  white-space: nowrap;
+  text-transform: uppercase;
+  /* color: var(--mainColor); */
+  color: #53452a;
+}
+
+.header .search-form {
+  gap: 5%;
+  /* display: flex; */
+  justify-content: space-between;
+  grid-column: 2 / 3;
+  grid-row: 1;
+  white-space: nowrap;
+}
+
+@media (max-width: 600px) {
+  .header .name {
+    font-size: 1.52rem;
+    text-align: center;
+    white-space: pre-wrap;
+    grid-column: 1 / 3;
+    grid-row: 1;
+  }
+
+  .header .search-form {
+    grid-column: 1 / 3;
+    grid-row: 2;
+  }
+}
+
+.header .search-box {
+  width: 100%;
+  outline: none;
+  border: none;
+  color: white;
+  background-color: #333;
+  padding: 6px 6px 6px 14px;
+  outline: none;
+  border-radius: 5px;
+}
+
+.header .search-btn {
+  cursor: pointer;
+}
+
+.sub-header {
+  padding: 2px 0;
+  background-color: #222;
+  color: white;
+}
+
+.sub-header ul {
+  width: 90%;
+  margin: 0 auto;
+  display: flex;
+  gap: 1.5rem;
+  flex-direction: row;
+}
+
+.sub-header li {
+  cursor: pointer;
+  margin: 0 5px;
+  list-style: none;
+  color: white;
+}
+
+section {
+  margin-top: 5vh;
+}
+
+section .heading {
+  color: var(--heading);
+  font-size: 1.75rem;
+  width: 90%;
+  margin: 0 auto;
+  margin-bottom: 5vh;
+}
+
+.container {
+  width: 90%;
+  margin: 0 auto;
+  grid-gap: 5vw;
+  justify-content: space-around;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, 240px);
+}
+
+.movie-card {
+  margin: 0 auto;
+  cursor: pointer;
+  /* width: 240px; */
+  width: 100%;
+  height: 360px;
+  position: relative;
+  background: linear-gradient(180deg,
+      rgba(255, 255, 255, 0.3) 0%,
+      rgba(0, 0, 0, 1) 100%);
+  transition: all 0.2s ease-in;
+}
+
+.scale:hover {
+  scale: 1.2;
+}
+
+.movie-card .movie-poster {
+  height: 100%;
+}
+
+.movie-card .movie-poster img {
+  z-index: -1;
+  height: 100%;
+  width: 100%;
+  background-size: cover;
+}
+
+.movie-card .movie-info {
+  justify-content: flex-end;
+  white-space: wrap;
+  display: flex;
+  flex-direction: column;
+  padding: 5% 5%;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 100%;
+  background: linear-gradient(rgba(73, 73, 73, 0.23) 35%, #161616b9 65%);
+}
+
+.movie-info .movie-year {
+  color: var(--textColor);
+  font-weight: 300;
+  font-size: 0.8rem;
+}
+
+.movie-info .movie-name {
+  width: 100%;
+  color: var(--textColor);
+  font-weight: 500;
+  font-size: 1.125rem;
+}
+
+.movie-info .movie-genre {
+  color: var(--mainColor);
+  font-weight: 600;
+}
+
+.movie-info .movie-rating {
+  font-weight: 900;
+  position: absolute;
+  right: 5%;
+}
+
+.movie-info .movie-rating .green {
+  color: green;
+}
+
+.movie-info .movie-rating .orange {
+  color: orange;
+}
+
+.movie-info .movie-rating .red {
+  color: red;
+}
+
+.movie-info .movie-rating .star {
+  font-size: 0.8rem;
+  color: gold;
+}
+
+/* MOdal CSS */
+
+.modal-bg {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1;
+  position: fixed;
+  height: 100vh;
+  width: 100%;
+  left: 0;
+  top: 0;
+  background-color: #eeeeee82;
+  visibility: hidden;
+  opacity: 0%;
+}
+
+.modal-main {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 60%;
+  height: 70%;
+  color: black;
+  background-color:transparent;
+}
+
+.modal-btn-close {
+  z-index: 10;
+  padding: 0px 10px;
+  position: absolute;
+  right: 10px;
+  top: 10px;
+  cursor: pointer;
+  transition: all 0.1s;
+}
+
+.modal-btn-close:hover {
+  background-color: #ddd;
+}
+
+.modal-active {
+  visibility: visible;
+  opacity: 100%;
+}
